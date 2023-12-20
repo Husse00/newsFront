@@ -1,1 +1,1 @@
-# newsFront
+# newsletter frontend
