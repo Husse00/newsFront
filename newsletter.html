@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="">
+
+    <button class="logoutBtn" onclick="logout()">Log out</button>
+
+    <div class="subscribe-div">
+        <p class="sub-p">Subscribe </p>
+        <div class="checkbox-wrapper-3">
+            <input type="checkbox" id="cbx-3" />
+            <label for="cbx-3" class="toggle" onclick="Subscribe()"><span></span></label>
+          </div>
+    </div>
+  </body>
+
+  <script>
+
+    // Set subscribe button onload
+    window.addEventListener('load', async function () {
+
+      let userId = localStorage.getItem("userId");
+
+      if (userId == null)
+      {
+        window.open("index.html",'_self');
+      }
+      
+      let response = await fetch("http://localhost:3000/GetSubscription?userId=" + userId);
+
+      let subscribed = await response.json();
+
+      document.getElementById("cbx-3").checked = subscribed
+
+    }, false);
+
+    function logout()
+    {
+      localStorage.removeItem("userId");
+      window.open("index.html",'_self');
+    }
+
+    async function Subscribe()
+    {
+      let userId = localStorage.getItem("userId");
+
+      let body = {
+        "userId": userId
+      };
+      
+      let response = await fetch("http://localhost:3000/Subscribe", {
+        method: "POST",
+        body: JSON.stringify(body),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+
+      if (!response.ok)
+      {
+        return;
+      }
+
+      let toggleBtn = document.getElementById("cbx-3");
+
+      toggleBtn.checked = toggleBtn.checked;
+    }
+  </script>
+
+</html>

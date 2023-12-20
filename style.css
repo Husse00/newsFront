@@ -1,0 +1,179 @@
+.body {
+  background-color: blanchedalmond;
+}
+
+.login-form {
+  background-color: brown;
+  width: 30em;
+  padding: 3em;
+  color: wheat;
+  margin: auto;
+  margin-top: 3em;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 3px 8px 13px 2px;
+}
+.signIn-P{
+    position: relative;
+    left: 6.5em;
+    bottom: 2em;
+    margin-bottom: -0.5em;
+    font-size: 23px;
+    text-decoration: underline overline wheat;
+}
+.email-form {
+  margin-left: 1.4em;
+}
+.input {
+  margin-left: 0.8em;
+  left: 2em;
+  padding: 0.7em;
+  background-color: rgb(252, 235, 204);
+}
+.signIn-btn {
+  position: relative;
+  left: 8.4em;
+  top: 1.4em;
+}
+.form{
+    position: relative;
+    left: 4.3em;
+}
+
+
+
+.signIn-btn {
+  align-self: center;
+  background-color: rgb(252, 235, 204);
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: 0.75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.signIn-btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.signIn-btn:focus {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
+}
+
+/* newsletter css */
+
+.subscribe-div{
+width: 10em;
+margin: auto;
+margin-top: 3em;
+border-radius: 25px;
+border: 2px solid #73AD21;
+padding: 50px;
+width: 200px;
+height: 150px;
+display: flex;
+background-color: rgb(246, 246, 246);
+}
+.sub-p{
+    font-size: 25px;
+    position: relative;
+   
+}
+.checkbox-wrapper-3 input[type="checkbox"] {
+    visibility: hidden;
+    display: none;
+  }
+
+  .checkbox-wrapper-3 .toggle {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 20px;
+    left: 1em;
+    top: 1.8em;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transform: translate3d(0, 0, 0);
+  }
+  .checkbox-wrapper-3 .toggle:before {
+    content: "";
+    position: relative;
+    top: 3px;
+    left: 3px;
+    width: 34px;
+    height: 14px;
+    display: block;
+    background: #9A9999;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+  }
+  .checkbox-wrapper-3 .toggle span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(154, 153, 153, 0.5);
+    transition: all 0.2s ease;
+  }
+  .checkbox-wrapper-3 .toggle span:before {
+    content: "";
+    position: absolute;
+    display: block;
+    margin: -18px;
+    width: 56px;
+    height: 56px;
+    background: rgba(79, 46, 220, 0.5);
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 1;
+    pointer-events: none;
+  }
+
+  .checkbox-wrapper-3 #cbx-3:checked + .toggle:before {
+    background: #947ADA;
+  }
+  .checkbox-wrapper-3 #cbx-3:checked + .toggle span {
+    background: #7c2edc;
+    transform: translateX(20px);
+    transition: all 0.2s cubic-bezier(0.8, 0.4, 0.3, 1.25), background 0.15s ease;
+    box-shadow: 0 3px 8px rgba(79, 46, 220, 0.2);
+  }
+  .checkbox-wrapper-3 #cbx-3:checked + .toggle span:before {
+    transform: scale(1);
+    opacity: 0;
+    transition: all 0.4s ease;
+  }
+  .signUp-P{
+    position: relative;
+    left: 0.5em;
+    bottom: 2em;
+    margin-bottom: -0.5em;
+    font-size: 23px;
+   
+}

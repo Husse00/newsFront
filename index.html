@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="body">
+    <div class="login-form">
+      <p class="signIn-P">Sign in to Newsletter</p>
+      <div class="form">
+      <div class="email-form">
+        <label for="email">Email:</label>
+        <input type="text" id="emailLogin" name="email" class="input email-input" />
+      </div>
+      <br />
+      <div class="password-form">
+        <label for="password">Password:</label>
+        <input type="text" id="passwordLogin" name="password" class="input" />
+      </div>
+      <button class="signIn-btn" onclick="signIn()">Sign in</button>
+    </div>
+    </div>
+    <div class="login-form">
+      <p class="signUp-P">If you dont have an account you can make a new one by signing up!</p>
+      <div class="form">
+      <div class="email-form">
+        <label for="email">Email:</label>
+        <input type="text" id="emailSignup" name="email" class="input email-input" />
+      </div>
+      <br />
+      <div class="password-form">
+        <label for="password">Password:</label>
+        <input type="text" id="passwordSignup" name="password" class="input" />
+      </div>
+      <button class="signIn-btn" onclick="signUp()">Sign up</button>
+    </div>
+    </div>
+  </body>
+
+  <script>
+
+    // Check if user is logged in on load and redirect if so
+    window.addEventListener('load', async function () {
+
+      let userId = localStorage.getItem("userId");
+
+      if (userId != null)
+      {
+        window.open("newsletter.html",'_self');
+      }
+
+    }, false);
+
+    async function signIn()
+    {
+      let email = document.getElementById("emailLogin").value;
+      let password = document.getElementById("passwordLogin").value;
+
+      let body = {
+        "email": email,
+        "password": password
+      };
+      
+      let response = await fetch("http://localhost:3000/SignIn", {
+        method: "POST",
+        body: JSON.stringify(body),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+
+      if (!response.ok)
+      {
+        return;
+      }
+
+      let userId = await response.json();
+
+      if (userId != null)
+      {
+        localStorage.setItem("userId", userId);
+        window.open("newsletter.html",'_self');
+      }
+
+    }
+
+    async function signUp()
+    {
+      let email = document.getElementById("emailSignup").value;
+      let password = document.getElementById("passwordSignup").value;
+
+      let body = {
+        "email": email,
+        "password": password
+      };
+      
+      let response = await fetch("http://localhost:3000/SignUp", {
+        method: "POST",
+        body: JSON.stringify(body),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+
+      if (response.ok)
+      {
+        alert("Sign up successful, you can now log in");
+      }
+      else
+      {
+        alert("Something went wrong when signing you up");
+      }
+    }
+  </script>
+
+</html>
