@@ -74,14 +74,15 @@
 
       if (!response.ok)
       {
+        alert("Login error");
         return;
       }
 
-      let userId = await response.json();
+      let json = await response.json();
 
-      if (userId != null)
+      if (json != null)
       {
-        localStorage.setItem("userId", userId);
+        localStorage.setItem("userId", json.id);
         window.open("newsletter.html",'_self');
       }
 

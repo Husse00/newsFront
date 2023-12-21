@@ -39,12 +39,14 @@
 
     }, false);
 
+    // Funktion för att logga ut igenom att ta bort användar-id:et från localstorage
     function logout()
     {
       localStorage.removeItem("userId");
       window.open("index.html",'_self');
     }
 
+    // Funktion för att ändra användarens subscribe-status
     async function Subscribe()
     {
       let userId = localStorage.getItem("userId");
